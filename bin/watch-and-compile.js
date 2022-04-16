@@ -40,16 +40,11 @@ new Promise((resolve, reject) => {
     return configData;
   })
   .then((configData) => {
-    console.log(`input directory: ${configData.inDir}`);
-    console.log(`output directory: ${configData.outDir}`);
-
-    const inDir = configData.inDir + withDirSlash(configData.inDir);
-    const outDir = configData.outDir + withDirSlash(configData.outDir);
-
-    if (inDir === outDir) {
-      // avoid cycles
-      throw new Error("Input and output directories are the same");
-    }
+    /** *
+     * TASK 3a: The goal of this function is to call the compiler whenever there is a change in a given directory (whenever pyx source files have been edited in "inDir"). The compiler outputs to "outDir".
+     * chokidar watches a directory for file changes (file added, saved, deleted).
+     * What is a possible edge case with the value of the input and output directory?
+     * */
 
     if (compiler.supportedOs(process.platform)) {
       chokidar.watch(`${configData.inDir}`).on("all", function (event, path) {
