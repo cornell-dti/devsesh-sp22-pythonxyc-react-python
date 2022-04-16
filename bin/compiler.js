@@ -27,10 +27,12 @@ const supportedOs = (os) => {
  * Transpiles a file in the inDir directory in a given path, and with a given output directory
  */
 const transpile = (inDir, outDir, path) => {
-  if (
-    shell.exec(`${__dirname}/../${_compiler} ${path} ${inDir} ${outDir}`)
-      .code !== 0
-  ) {
+  /** Task 2a: transpiling a single file
+   * Assuming that our tool's main entry point exists in /__dirname (and that is where relative paths start from), we need to call the correct compiler for the OS.
+   * The format of calling hte compiler looks like this:
+   * pyxyc [file path] [directory containing input] [directory for output]
+   */
+  if (shell.exec(/* what goes here? */).code !== 0) {
     shell.echo(`Error in compiling ${path}`);
     shell.exit(1);
   }

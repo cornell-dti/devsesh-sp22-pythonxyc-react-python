@@ -34,15 +34,14 @@ const traverseAllFiles = (dir, cbFile, cbDir, root) => {
       const fullPath = `${dir}/${path}`;
       const pathInDir = fullPath.replace(root, "");
 
+      /** Task 2b: we want to recursively act on files and directoriers.
+       * How does one recursively act on the file tree?
+       * leaf: Call cbFile if the pathInDir (path in directory) is a file with pathInDir as the param. Ensure that the file is a .pyx file.
+       * non-leaf: If the pathinDir is itself a path, call cbFile with pathInDir as the param and then make a recursive call.
+       */
+
       if (fs.statSync(`${dir}/${path}`).isDirectory()) {
-        cbDir(pathInDir);
-        traverseAllFiles(`${dir}/${path}`, cbFile, cbDir, root);
       } else {
-        if (
-          pathInDir.substring(pathInDir.length - 4, pathInDir.length) === ".pyx"
-        ) {
-          cbFile(pathInDir);
-        }
       }
     });
   });
@@ -78,15 +77,15 @@ const main = async () => {
     await files.clean(outDirSlash);
 
     if (compiler.supportedOs(process.platform)) {
+      /** Task 2c: make the call to traverseAllFiles
+       * pass in the necessary arguments
+       * for cbFile, pass in a function that simply transpiles a given file
+       * for cbDir, pass in a function that lets the compiler add a directory to the output directory (allowing us to output files to an inner directory)
+       */
       traverseAllFiles(
-        `${inDir}`,
-        (fName) => {
-          console.log(fName);
-          compiler.transpile(inDirSlash, outDirSlash, fName);
-        },
-        (dirName) => {
-          compiler.addDirectory(outDirSlash, dirName);
-        },
+        // hm...,
+        // what goes here,
+        // what about here,
         root
       );
     } else {
