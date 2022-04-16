@@ -1,5 +1,5 @@
 {
-  "name": "react-python",
+  "name": "task 0: rename me please! react-python",
   "version": "1.1.2",
   "description": "A wrapper for pythonxyc, a compiler that translates Python(-like) code into React JSX",
   "bin": {
