@@ -3,12 +3,8 @@
   "version": "1.1.2",
   "description": "A wrapper for pythonxyc, a compiler that translates Python(-like) code into React JSX",
   "bin": {
-    "pyxyc-setup": "./bin/setup.js",
-    "pyxyc": "./bin/index.js",
-    "pyxyc-watch-and-compile": "./bin/watch-and-compile.js",
-    "react-python-setup": "./bin/setup.js",
-    "react-python-compile": "./bin/index.js",
-    "react-python-watch-and-compile": "./bin/watch-and-compile.js"
+    "hmm": " * Task 1a: we need a good set of scripts that can cover",
+    "ahh": "* (1) setup, (2) compilation, and (3) watch-and-compile?"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
